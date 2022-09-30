@@ -1,0 +1,25 @@
+npm install @worldcoin/id
+<script
+  type="text/javascript"
+  src="//unpkg.com/@worldcoin/id/dist/world-id.js"
+></script>
+import { WorldIDWidget } from '@worldcoin/id'
+<WorldIDWidget
+  actionId="wid_BPZsRJANxct2cZxVRyh80SFG" // obtain this from developer.worldcoin.org
+  signal="my_signal"
+  enableTelemetry
+  onSuccess={(verificationResponse) => console.log(verificationResponse)} // pass the proof to the API or your smart contract
+  onError={(error) => console.error(error)}
+  debug={true} // to aid with debugging, remove in production
+  
+/>widget 
+import * as worldID from '@worldcoin/id' // If you installed the JS package as a module
+
+worldID.init('world-id-container', {
+  debug: true, // to aid with debugging, remove in production
+  enable_telemetry: true,
+  action_id: 'wid_BPZsRJANxct2cZxVRyh80SFG', // obtain this from developer.worldcoin.org
+  signal: 'your_signal',
+  on_success: (proof) => console.log(proof),
+  on_error: (error) => console.error(error),
+})
